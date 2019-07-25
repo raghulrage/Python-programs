@@ -1,0 +1,16 @@
+mark=int(input())
+if(mark<=100):
+    if(90<mark<=100):
+        print("S")
+    elif(80<mark<=90):
+        print("A")
+    elif(70<mark<=80):
+        print("B")
+    elif(60<mark<=70):
+        print("B+")
+    elif(50<mark<=60):
+        print("C")
+    elif(40<mark<=50):
+        print("D")
+    else:
+        print("U")
