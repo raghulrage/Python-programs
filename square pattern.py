@@ -1,12 +1,4 @@
 n=4
-"""for i in range(2*n):
-    for j in range(2*n+1):
-        if((i==0 or i==2*n) and j==n):
-            print(end='  ')
-        else:
-            print("*",end='')
-    print()
-"""
 for k in range(1):
     a=0
     b=0
@@ -39,3 +31,13 @@ for i in range(n):
 
     print()
         
+"""
+* * * *  * * * * 
+* * *      * * * 
+* *          * * 
+*              * 
+*              * 
+* *          * * 
+* * *      * * * 
+* * * *  * * * *
+"""
