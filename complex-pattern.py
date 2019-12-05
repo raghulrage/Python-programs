@@ -27,7 +27,7 @@ for i in range(n):
         z+=2
     print()
     
-***
+"""
     * A
    ** BC
   *** CDE
@@ -38,4 +38,4 @@ for i in range(n):
   543 579
    54 79
     5 9
-***
+"""
