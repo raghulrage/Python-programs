@@ -13,8 +13,6 @@ for i in range(n):
         alpha+=1
     print()
 m=0
-#Solution 2
-#-------------------------
 for i in range(n):
     z=1+i*2
     for k in range(m):
@@ -27,7 +25,9 @@ for i in range(n):
         print(z,end='')
         z+=2
     print()
-    
+
+#Solution 2
+#-------------------------
 for i in range(n*2+1):
     l=[]
     z=65+i
