@@ -46,7 +46,7 @@ for i in range(n*2+1):
                 l.append(' ')
 
             if j<n and j>=i-n:
-                l.append(str(n-j))
+                l.append(str(i-j))
             if j>n and i>=n and j<n+i+1 and i<n*2 and j<=+n*2-(i-n):
                 l.append(str((j-n)*2-1+(i-n)*2))
                 
