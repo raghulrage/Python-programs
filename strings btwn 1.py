@@ -22,10 +22,6 @@ for i in range(n):
 a='101101'
 for i in range(len(a)-1):
     if(a[i]=='1'):
-        b='1'
         for j in range(i+1,len(a)):
-            if(a[j]=='0'):
-                b+='0'
-            else:
-                b+='1'
-                print(b)
+            if(a[j]=='1'):
+                print(a[i:j+1])
