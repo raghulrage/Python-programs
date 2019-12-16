@@ -18,3 +18,14 @@ for i in range(n):
                 if(s1<s2):
                     print(''.join(map(str,num[s1:s2+1])))
             k+=1
+#solution 2
+a='101101'
+for i in range(len(a)-1):
+    if(a[i]=='1'):
+        b='1'
+        for j in range(i+1,len(a)):
+            if(a[j]=='0'):
+                b+='0'
+            else:
+                b+='1'
+                print(b)
