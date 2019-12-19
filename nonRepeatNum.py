@@ -1,14 +1,5 @@
-size=int(input("Enter size"))
-list1=[]
-list2=[]
-list3=[]
-for i in range(size):
-        num =int(input())
-        list1.append(num)
-for i in range(len(list1)):
-    if list1[i] not in list1:
-        list2.append(list1[i])
-    else:
-        list3.append(list1[i])
-list1.sort()
-print(list1[0])
+from collections import Counter as cs
+l=cs([1,2,3,3,4])
+z=[k if v==1 else 'a' for k,v in l.items()]
+z.remove('a')
+print(z)
