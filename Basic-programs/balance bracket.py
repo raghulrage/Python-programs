@@ -1,7 +1,7 @@
 d={'{':'}','(':')','[':']'}
 n=list(input())
 l=[]
-f=0
+f=[]
 for i in n:
     if(i in d.keys()):
         l.append(i)
@@ -9,8 +9,10 @@ for i in n:
         if(l!=[]):
             if d[l[-1]]==i:
                 l.pop()
+        else:
+            f.append(1)
 
-if(l==[]):
+if(f==[]):
     print('True')
 else:
     print('False')
