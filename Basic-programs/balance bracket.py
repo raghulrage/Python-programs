@@ -12,7 +12,7 @@ for i in n:
         else:
             f.append(1)
 
-if(f==[]):
+if(f==[] and l==[]):
     print('True')
 else:
     print('False')
