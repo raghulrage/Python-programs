@@ -4,28 +4,26 @@ l=[[5,9],[1, 2, 6, 7]]
 m=max(l[0])
 n=min(l[0])
 d=m-n
-if(d in l[1]):
-    print(d)
-else:
-    l2=l[1]
-    l3=[]
-    for i in range(len(l2)-1):
-        if(l2[i]+l2[i+1]==d):
-            l3.append([l2[i],l2[i+1]])
-    if(l3==[]):
-        l4=[]
-        l5=[]
-        for i in l2:
-            l4.append(l[0][0]+i)
-            l5.append(l[0][1]+i)
-        for i in range(len(l4)):
-            if(l4[i] in l5):
-                print(l[1][l4.index(l4[i])],l[1][l5.index(l4[i])])
-                break
-        else:
-            print ('No')
+l2,l3,l4,l5=l[1],[],[],[]
+for i in range(len(l2)-1):
+    if(l2[i]+l2[i+1]==d):
+        l3.append([l2[i],l2[i+1]])
+if(l3==[]):
+    for i in l2:
+        l4.append(l[0][0]+i)
+        l5.append(l[0][1]+i)
+    for i in range(len(l4)):
+        if(l4[i] in l5):
+            s=[l[1][l4.index(l4[i])],l[1][l5.index(l4[i])]]
+            if(d is min(s)):
+                print(d)
+            else:
+                print(s)
+            break
     else:
-        print(l3[0])
+        print ('No')
+else:
+    print(l3[0])
                 
 '''Have the function ScaleBalancing(strArr) read strArr which will contain two elements,
 the first being the two positive integer weights on a balance scale (left and right sides) and
