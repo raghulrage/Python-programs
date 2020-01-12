@@ -3,7 +3,7 @@ def fn(a):
         if(a[i].isdigit()):
             for j in range(i+1,len(a)):
                 if((a[j].isdigit())):
-                    if(int(a[i])+int(a[j])==10):+ry7e
+                    if(int(a[i])+int(a[j])==10):
                         if(a[i:j].count('?')==3):
                             return True 
                             break
