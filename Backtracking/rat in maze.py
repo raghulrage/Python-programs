@@ -48,7 +48,6 @@ maze = [
 SIZE= len(maze)
 d=0
 mindis=[]
-all=[]
 solution = [[0]*SIZE for _ in range(SIZE)]
 
 def solvemaze(l,r):
@@ -62,9 +61,9 @@ def solvemaze(l,r):
             print(i)
         print(d)
         print('**********************')
-        all.append(solution)
         if(d not in mindis):
             return True
+        d-=1
         return False
 
     if l<SIZE and r<SIZE and l>=0 and r>=0 and solution[l][r]==0 and maze[l][r]==0:
@@ -90,7 +89,6 @@ else:
         print("no solution")
     else:
         print(min(mindis))
-
         
 #LEVEL-4
 maze = [
