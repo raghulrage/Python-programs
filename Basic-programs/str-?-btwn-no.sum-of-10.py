@@ -1,16 +1,21 @@
 def fn(a):
+    c1,c2=0,0
     for i in range(len(a)):
         if(a[i].isdigit()):
             for j in range(i+1,len(a)):
                 if((a[j].isdigit())):
                     if(int(a[i])+int(a[j])==10):
+                        c1+=1
                         if(a[i:j].count('?')==3):
-                            return True 
+                            c2+=1
                             break
-    return False
+    if c1==c2:
+        return True
+    else:
+        return False
 
 
-a="aa6???4"
+a="5??aaaaaaaaaaaaaaaaaaa?5?5"
 
 if(fn(a)==True):
     print('True')
