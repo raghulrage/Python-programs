@@ -57,7 +57,6 @@ def solvemaze(l,r):
         d+=1
         solution[l][r]=1
         mindis.append(d)
-        dis=0
         ans.append(copy.deepcopy(solution))
         if(d not in mindis):
             return True
@@ -114,7 +113,6 @@ def solvemaze(l,r):
         d+=1
         solution[l][r]=1
         mindis.append(d)
-        dis=0
         ans.append(copy.deepcopy(solution))
         if(d not in mindis):
             return True
