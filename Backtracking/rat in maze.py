@@ -47,6 +47,7 @@ maze = [
 ]
 SIZE= len(maze)
 d=0
+ans=[]
 mindis=[]
 solution = [[0]*SIZE for _ in range(SIZE)]
 
@@ -57,10 +58,7 @@ def solvemaze(l,r):
         solution[l][r]=1
         mindis.append(d)
         dis=0
-        for i in solution:
-            print(i)
-        print(d)
-        print('**********************')
+        ans.append(copy.deepcopy(solution))
         if(d not in mindis):
             return True
         d-=1
@@ -89,6 +87,8 @@ else:
         print("no solution")
     else:
         print(min(mindis))
+        for i in ans[mindis.index(min(mindis))]:
+            print(i)
         
 #LEVEL-4
 maze = [
