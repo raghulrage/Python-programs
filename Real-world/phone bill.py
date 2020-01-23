@@ -37,7 +37,7 @@ In your solution, focus on correctness. The performance of your solution will no
 
 
 
-
+#solution 1 (old)
 
 # Get_no_of_logs
 num = int(input())
@@ -85,5 +85,71 @@ for i in range(num):
 00:02:45,890-765-566
 00:05:23,236-418-785
 00:07:00,236-418-785
+"""
+
+#solution 2
+
+#initialization
+d,d1,m,final={},{},{},[]
+
+def getinput():
+    n=input().split()
+    for i in n:
+        val=i.split(',')
+        if(val[1] not in d):
+            d[val[1]]=[list(map(int,val[0].split(':')))]
+        else:
+            d[val[1]].append(list(map(int,val[0].split(':'))))
+
+def find_amount():
+    for i in d.keys():    
+        d1[i],val=[],0
+        for j in d[i]:
+            dur,hr,mins,sec=0,j[0],j[1],j[2]
+            val+=(mins*60)+sec
+            if(hr==0):
+                if(mins<5):
+                    dur+=(mins*60)+sec
+                    dur*=3
+                else:
+                    if(sec>0):
+                        print(mins)
+                        mins+=1
+                    dur=mins*150
+            d1[i].append(dur)
+        d1[i]=sum(d1[i])
+        m[i]=val
+        
+def total_amount():
+        for i,j in sorted(m.items(),key=lambda x:x[1]):
+            if(j==max(m.values())):
+                final.append(i)
+        final.sort(reverse=True)
+        d1[final[0]]=0
+        
+def main():
+    getinput()
+    find_amount()
+    total_amount()
+    print('\n',sum(d1.values()))
+
+if __name__=="__main__":
+    main()
+        
+    
+    
+ 
+"""
+00:02:45,890-765-566 00:05:23,236-418-785 00:07:00,236-418-78500:02:45,890-765-566 00:05:23,236-418-785 00:07:00,236-418-785
+"""
+"""
+00:05:17,959-720-018 00:03:00,959-720-018 00:04:59,959-720-018
+"""
+"""
+00:04:59,959-720-018 00:05:00,750-222-197 00:15:31,892-545-277
+00:05:59,959-720-018 00:07:00,750-222-197 00:05:59,892-545-277
+"""
+"""
+00:5:17,959-720-018 00:19:38,750-222-197 00:14:21,959-720-018 00:17:01,892-545-277
 """
 
