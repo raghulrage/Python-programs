@@ -124,7 +124,7 @@ def total_amount():
         for i,j in sorted(m.items(),key=lambda x:x[1]):
             if(j==max(m.values())):
                 final.append(i)
-        final.sort(reverse=True)
+        final.sort()
         d1[final[0]]=0
         
 def main():
