@@ -1,5 +1,5 @@
-CHEMIST QUESTION
-
+#CHEMIST QUESTION
+"""
 You have been hired as a software consultant at a chemist. The chemist shop sells various types of
 compounds and mixture to their customers. They have a research team that put together various formulas
 for the chemist of sell. The owner of the shop is a bit of stickler for cleanliness and is also afraid of
@@ -15,7 +15,7 @@ to prepare.
 
 Calculate the minimum number of bowls required to prepared the given compounds.
 Test cases are followed by the code
-
+"""
 ------------------------------------------_________CODE_________------------------------------------------------------
 
 #initialization
