@@ -15,11 +15,12 @@ to prepare.
 
 Calculate the minimum number of bowls required to prepared the given compounds.
 Test cases are followed by the code
-"""
+
 ------------------------------------------_________CODE_________------------------------------------------------------
+"""
 
 #initialization
-raw_components,component_to_prepare,count_value,existing_component={},[],0,[]
+raw_components,component_to_prepare,count_value,existing_component,total_bowl={},[],0,[],0
 
 def get_input():
     global component_to_prepare
@@ -27,36 +28,35 @@ def get_input():
         input_raw_component=input().split('=')
         raw_components[input_raw_component[0].strip()]=[i.strip() for i in input_raw_component[1].split('+')]
     for i in range(int(input())):
-        component_to_prepare.append(input())
-    component_to_prepare=list(set(component_to_prepare))
-    
+        component_to_prepare.append(input())    
 def fn(n):
-    temporary_component=[]
     global count_value
+    temporary_component=[]
     for i in n:
         if(i in raw_components.keys()):
             if(i not in existing_component):
                 count_value+=1
                 temporary_component=raw_components[i]
                 existing_component.append(i)
-            
-    if(temporary_component!=[]):
-        fn(temporary_component)
+        if(temporary_component!=[]):
+            fn(temporary_component)
     return count_value
 
 def main():
     get_input()
-    for i in component_to_prepare:    
-        total_bowl=fn([i])
+    global total_bowl, count_value
+    for i in component_to_prepare:
+        count_value=0
+        total_bowl+=fn([i])
     print(total_bowl)
 
 if __name__=="__main__":
     main()
 
 
-  
+"""  
 ------------------------------------------_____TEST-CASE______---------------------------------------------------------
-"""
+
 Test case 1
 
 Input
@@ -89,6 +89,8 @@ H2SO4 = H2O + S03
 S03 = S + O
 1
 H2SO4
+Output
+3
 
 5
 H2O = H + O
@@ -99,6 +101,4 @@ H2Na = H2 + Na
 2
 H2SO4NaCL
 H2Na
-Output
-3
 """
