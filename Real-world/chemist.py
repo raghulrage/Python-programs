@@ -19,7 +19,7 @@ Test cases are followed by the code
 ------------------------------------------_________CODE_________------------------------------------------------------
 
 #initialization
-raw_components,component_to_prepare,count_value={},[],0
+raw_components,component_to_prepare,count_value,existing_component={},[],0,[]
 
 def get_input():
     global component_to_prepare
@@ -35,8 +35,11 @@ def fn(n):
     global count_value
     for i in n:
         if(i in raw_components.keys()):
-            count_value+=1
-            temporary_component=raw_components[i]           
+            if(i not in existing_component):
+                count_value+=1
+                temporary_component=raw_components[i]
+                existing_component.append(i)
+            
     if(temporary_component!=[]):
         fn(temporary_component)
     return count_value
@@ -49,9 +52,11 @@ def main():
 
 if __name__=="__main__":
     main()
+
+
   
 ------------------------------------------_____TEST-CASE______---------------------------------------------------------
-
+"""
 Test case 1
 
 Input
@@ -87,3 +92,4 @@ H2SO4
 
 Output
 3
+"""
