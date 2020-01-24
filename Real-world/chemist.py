@@ -90,6 +90,15 @@ S03 = S + O
 1
 H2SO4
 
+5
+H2O = H + O
+NaCL = Na + CL
+H2SO4NaCL = H2OSO4 + NaCL
+H2SO4 = H2O + SO3
+H2Na = H2 + Na
+2
+H2SO4NaCL
+H2Na
 Output
 3
 """
