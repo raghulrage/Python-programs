@@ -23,6 +23,7 @@ everywhere), and given the full description of all the nomadic tribes that attac
 determine how many of the attacks were successful. Weaponry has not advanced across the
 globe and thus all tribes have the same weapon X
 """
+import copy
 #initialization
 wall,attack,count={'N':0,'W':0,'E':0,'S':0},[],0
 
@@ -30,12 +31,13 @@ def get_input():
     n=input().split(';')
     for i in n:
         if(':' in i):
+            temp_list=[]
             temp=i.split(':')
             for i in temp:
-                spliting(i)            
+                temp_list.append(spliting(i))
+            attack.append(temp_list)
         else:
-            spliting(i)
-            
+            attack.append([spliting(i)])  
 def spliting(i):
     a=[]
     for k in i[::-1]:
@@ -44,14 +46,19 @@ def spliting(i):
         if(k in wall):
             a.append(k)
             break
-    attack.append(a)
-def find_val():
+    return a 
     
-    for i,j in attack:
-        global count
-        if(wall[j]<i):
-           count+=1
-           wall[j]=i
+def find_val():
+    for k in attack:
+        temp_wall=copy.deepcopy(wall)
+        for i,j in k:
+            global count
+            if(wall[j]<i):
+                temp_wall[j]=i
+                count+=1
+        for i in wall.keys():
+            if(wall[i]<temp_wall[i]):
+                wall[i]=temp_wall[i]                
     return count
         
 def main():
