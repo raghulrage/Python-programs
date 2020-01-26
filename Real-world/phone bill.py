@@ -107,15 +107,15 @@ def find_amount():
         for j in d[i]:
             dur,hr,mins,sec=0,j[0],j[1],j[2]
             val+=(mins*60)+sec
-            if(hr==0):
-                if(mins<5):
-                    dur+=(mins*60)+sec
-                    dur*=3
-                else:
-                    if(sec>0):
-                        print(mins)
-                        mins+=1
-                    dur=mins*150
+            if(hr!=0):
+                mins+=hr*60
+            if(mins<5):
+                dur+=(mins*60)+sec
+                dur*=3
+            else:
+                if(sec>0):
+                    mins+=1
+                dur=mins*150
             d1[i].append(dur)
         d1[i]=sum(d1[i])
         m[i]=val
