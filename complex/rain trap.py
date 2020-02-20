@@ -12,6 +12,7 @@ for i in range(1,len(n)-1):
     for j in range(i+1,len(n)):
         b=max(b,n[j])
     r=r+(min(a,b)-n[i])
+print(sum([min(max(n[:i+1]),max(n[i:]))-n[i] for i in range(i,m-1)]))
 print(r)
 
 
