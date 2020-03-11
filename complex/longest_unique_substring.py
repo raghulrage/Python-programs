@@ -7,7 +7,7 @@ def longest(x):
          long.add(x)
          return True
         
-def find_longest(string):s
+def find_longest(string):
     return len(max((list(j) for i,j in groupby(string, key=longest)),key=len))    
 
 string= input()
