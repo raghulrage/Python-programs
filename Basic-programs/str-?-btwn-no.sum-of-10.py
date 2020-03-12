@@ -13,7 +13,20 @@ def fn(a):
         return True
     else:
         return False
-
+'''def fn(a):
+    for i in range(len(a)-1):
+        if a[i].isdigit():
+            s = a[i]
+            for j in range(i+1,len(a)):
+                if not a[j].isdigit():
+                    s+=a[j]
+                else:
+                    s+=a[j]
+                    break
+            
+            if int(s[0])+int(s[-1]) == 10 and s.count('?')==3:
+                return True
+            return False'''
 
 a="5??aaaaaaaaaaaaaaaaaaa?5?5"
 
