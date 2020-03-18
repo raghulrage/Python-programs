@@ -1,57 +1,98 @@
-storage_details,initial_storage = {},{}
-path,litre = [],0
+#import packages
+import time
+from collections import OrderedDict as od
 
-days = int(input())
-#initialization of well
-for i in range(int(input())):
-    n = input().split()
-    storage_details[n[0]] = list(map(int,n[1:]))
-    initial_storage[n[0]] = 0
+#initialization of variables
+tank_info, tank_fill, connection , water_needed = od(), od(), [], 0
 
-#connection
-for _ in range(int(input())):
-    n = input().split('_')
-    if 'F' == n[0]:
-        path.append([n[1]])
-    else:
-        for i in path:
-            if n[0] in i:
-                i.append(n[1])
-#day starting                
-for p in path:
-    for line in p:
-        litre += storage_details[line][1]
-        initial_storage[line] += storage_details[line][1]
-print(initial_storage)
+def getInput():
+    #get tanks
+    no_of_tanks = int(input())
+    for _ in range(no_of_tanks):
+        val = input().split()
+        tank_info[val[0]], tank_fill[val[0]] = list(map(int,val[1:])), 0
+       
+    #path connection
+    no_of_links = int(input())
+    for _ in range(no_of_links):
+        link = input().split('_')
+        if 'F' == link[0]:
+            connection.append([link[1]])
+        else:
+            for tank in connection:
+                if link[0] in tank:
+                    tank.append(link[1])
+                   
+def initialFill(connection):
+    global water_needed
+    for link in connection:
+        for tank in link:
+            water_needed+=tank_info[tank][1]
+            tank_fill[tank]+=tank_info[tank][1]
 
-while True:
-    for i in initial_storage.keys():
-        initial_storage[i]-=storage_details[i][0]
+def chekForDrained(drained_tank):
+    for tank, storage in tank_fill.items():
+                if storage < tank_info[tank][0]:
+                    for temp in connection:
+                        if tank in temp:
+                            ind = connection.index(temp)
+                            break
+                    drained_tank[ind] = tank  
 
-    days-=1
-    if days==0:
-        break
-    drained = ['' for _ in range(len(path))]
-    for i,j in initial_storage.items():
-        if j < storage_details[i][0]:
-            for temp in path:
-               if i in temp:
-                   ind = path.index(temp)
-                   break
-            drained[ind] = i
-    print(drained)
-    for d in drained:
-        for line in path:
-            if d and d in line:
-                for l in line:
-                    if l!=d:
-                        initial_storage[l] = storage_details[l][1]
-                        litre+=storage_details[l][1]
-                    else:
-                        initial_storage[l] = storage_details[l][1]
-                        litre+=storage_details[l][1]
-                        break
-print(litre)
+def refillTanks(drain):
+    global water_needed
+    for tank in connection:
+        if drain in tank:
+            for l in tank:
+                if l!=drain:
+                    tank_fill[l] = tank_info[l][1]
+                    water_needed+=tank_info[l][1]
+                else:
+                    tank_fill[l] = tank_info[l][1]
+                    water_needed+=tank_info[l][1]
+                    break
+               
+def useOfWater(no_of_days):
+    global water_needed
+    while True:
+        for tank in tank_fill.keys():
+            tank_fill[tank]-=tank_info[tank][0]
+       
+        #day decrement
+        no_of_days-=1
+       
+        #exit loop when days ended
+        if no_of_days==0:
+            break
+        else:
+            #check for tank drained
+            drained_tank = [0 for _ in range(len(connection))]
+            chekForDrained(drained_tank)
+           
+            #refill drained tanks
+            for drain in drained_tank:
+                #check for drained tanks
+                if drain:
+                    refillTanks(drain)  
+    return water_needed
+
+
+   
+if __name__=='__main__':
+    #no of days
+    no_of_days = int(input())
+   
+    #get input
+    getInput()
+   
+    #fill tank at beginneing of day
+    initialFill(connection)
+   
+    #days iteration
+    answer = useOfWater(no_of_days)
+   
+    #final answer
+    print(answer)
 
 '''
 Input  
