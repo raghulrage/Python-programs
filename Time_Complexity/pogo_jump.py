@@ -11,5 +11,8 @@ def canJump(nums):
         return False
   return True
 n = int(input())
+if n==1 or n==0:
+  print('True')
+  exit()
 m = list(map(int,input().split()))
 print(canJump(m))
