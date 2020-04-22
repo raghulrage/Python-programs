@@ -1,5 +1,5 @@
 #import packages
-import time
+
 from collections import OrderedDict as od
 
 #initialization of variables
