@@ -1,5 +1,5 @@
 """
-"""
+
 2.Electricity Bill Calculation
 
 The consolidated power consumption for a commercial complex is sent in the following
