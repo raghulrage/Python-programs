@@ -21,6 +21,12 @@ Added Docx File of Notes For Study Purpose.
 
 - [Python3](https://www.python.org/downloads/)
 
-[![Contributors][https://img.shields.io/github/contributors/raghulrage/Python-programs]][https://github.com/raghulrage/Python-programs/graphs/contributors]
-[![Forks][https://img.shields.io/github/forks/raghulrage/Python-programs]][https://github.com/raghulrage/Python-programs/network/members]
+<a href="https://github.com/raghulrage/Python-programs/graphs/contributors" alt="Contributors">
+        <img src="https://img.shields.io/github/contributors/raghulrage/Python-programs" />
+</a>
+
+<a href="https://github.com/raghulrage/Python-programs/network/members" alt="Forks">
+        <img src="https://img.shields.io/github/forks/raghulrage/Python-programs" />
+</a>
+
 ![](https://img.shields.io/github/repo-size/raghulrage/Python-programs?label=Repo%20size&style=flat-square)
