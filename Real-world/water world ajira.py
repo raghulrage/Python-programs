@@ -1,5 +1,4 @@
 #import packages
-
 from collections import OrderedDict as od
 
 #initialization of variables
@@ -41,15 +40,13 @@ def chekForDrained(drained_tank):
 
 def refillTanks(drain):
     global water_needed
-    for tank in connection:
-        if drain in tank:
-            for l in tank:
-                if l!=drain:
-                    tank_fill[l] = tank_info[l][1]
-                    water_needed+=tank_info[l][1]
-                else:
-                    tank_fill[l] = tank_info[l][1]
-                    water_needed+=tank_info[l][1]
+    for tanks in connection:
+        if drain in tanks:
+            for tank in tanks:
+                tank_fill[tank] = tank_info[tank][1]
+                water_needed += tank_info[tank][1]
+                #Till target tank(drained tank)
+                if tank == drain:
                     break
                
 def useOfWater(no_of_days):
@@ -84,13 +81,13 @@ if __name__=='__main__':
    
     #get input
     getInput()
-   
-    #fill tank at beginneing of day
+
+    #fill tank at beginning of day
     initialFill(connection)
    
     #days iteration
     answer = useOfWater(no_of_days)
-   
+
     #final answer
     print(answer)
 
@@ -121,6 +118,8 @@ F_C1
 F_C3
 C1_C2
 C3_C4
+Output
+1900
 
 3
 4
@@ -133,5 +132,6 @@ F_C1
 F_C3
 C3_C4
 C1_C2
-
+Output
+2500
 '''
